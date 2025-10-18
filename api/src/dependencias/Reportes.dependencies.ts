@@ -37,6 +37,10 @@ import { IReportesMesPlantadorRepository } from "../modules/reportes/reportes-me
 import { ReportesMesPlantadorService } from "../modules/reportes/reportes-mes-plantador/application/services/ReportesMesPlantador.service";
 import { ReportesMesPlantadorController } from "../modules/reportes/reportes-mes-plantador/presentation/controllers/ReportesMesPlantador.controller";
 import { ReportesMesPlantadorRepository } from "../modules/reportes/reportes-mes-plantador/infraestructure/repositories/ReportesMesPlantador.repository";
+import { IReportesFinanzasMensualesRepository } from "../modules/reportes/reportes-finanzas-mensuales/domain/repositories/IReportesFinanzasMensuales.repository";
+import { ReportesFinanzasMensualesService } from "../modules/reportes/reportes-finanzas-mensuales/application/services/ReportesFinanzasMensuales.service";
+import { ReportesFinanzasMensualesController } from "../modules/reportes/reportes-finanzas-mensuales/presentation/controllers/ReportesFinanzasMensuales.controller";
+import { ReportesFinanzasMensualesRepository } from "../modules/reportes/reportes-finanzas-mensuales/infraestructure/repositories/ReportesFinanzasMensuales.repository";
 
 export const registerReportesDependencies = () => {
     container.registerInstance(DataSource, AppDataSource);
@@ -75,5 +79,11 @@ export const registerReportesDependencies = () => {
     container.register<IReportesMesPlantadorRepository>("IReportesMesPlantadorRepository", { useClass: ReportesMesPlantadorRepository });
     container.register(ReportesMesPlantadorService, { useClass: ReportesMesPlantadorService });
     container.register(ReportesMesPlantadorController, { useClass: ReportesMesPlantadorController });
+
+    // REPORTES FINANZAS MENSUALES
+    // Registrar repositorio usando el constructor directamente para evitar overloads de tsyringe
+    container.register<IReportesFinanzasMensualesRepository>("IReportesFinanzasMensualesRepository", ReportesFinanzasMensualesRepository as any);
+    container.register(ReportesFinanzasMensualesService, { useClass: ReportesFinanzasMensualesService });
+    container.register(ReportesFinanzasMensualesController, { useClass: ReportesFinanzasMensualesController });
 
 }
