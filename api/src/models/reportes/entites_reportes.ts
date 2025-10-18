@@ -5,6 +5,7 @@ import { ReportesPeriodoDescripcionModel } from "../../modules/reportes/reportes
 import { ReportesModel } from "../../modules/reportes/reportes/infraestructure/model/reportes.models";
 import { ReportesTipoEncargadoModel } from "../../modules/reportes/reportes_tipo_encargado/infraestructure/model/reportes-tipo-encargado.models";
 import { ReportesMesPlantadorModel } from "../../modules/reportes/reportes-mes-plantador/infraestructure/model/reportes-mes-plantador.models";
+import { ReportesFinanzasMensualesModel } from "../../modules/reportes/reportes-finanzas-mensuales/infraestructure/model/reportes-finanzas-mensuales.models";
 
 export const entitiesReportes = [
     ReportesModel,
@@ -14,4 +15,5 @@ export const entitiesReportes = [
     ReportesEstadoModel,
     ReportesTipoEncargadoModel,
     ReportesMesPlantadorModel,
+    ReportesFinanzasMensualesModel,
 ]
