@@ -1,0 +1,78 @@
+/* ReusablePagination.module.css */
+
+.paginationContainer {
+    /* Contenedor principal de la paginación, puedes añadir margen si es necesario */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex; /* Asegurar que el justify-content-center de Bootstrap funcione */
+    justify-content: center;
+  }
+  
+  /* Estilo general para todos los ítems de paginación */
+  .pageItem {
+    margin: 0 3px; /* Pequeño espacio entre botones */
+  }
+  
+  .pageItem .page-link { /* Estilo para el <a> dentro de <li> */
+    border-radius: 0.3rem; /* Bordes redondeados suaves */
+    color: #0d6efd; /* Color primario de Bootstrap para el texto */
+    border: 1px solid #dee2e6; /* Borde estándar sutil */
+    padding: 0.45rem 0.85rem; /* Padding ajustado para un buen tamaño de clic */
+    font-size: 0.9rem;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
+    background-color: #fff; /* Fondo blanco por defecto */
+  }
+  
+  .pageItem .page-link:hover {
+    background-color: #e9ecef; /* Color de fondo al pasar el mouse */
+    border-color: #adb5bd; /* Borde ligeramente más oscuro al pasar el mouse */
+    color: #0056b3; /* Color de texto más oscuro al pasar el mouse */
+    transform: translateY(-1px); /* Ligera elevación */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+  }
+  
+  /* Ítem activo */
+  .pageItem.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #0d6efd; /* Color primario de Bootstrap */
+    border-color: #0d6efd;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(13, 110, 253, 0.3); /* Sombra para destacar el activo */
+  }
+  .pageItem.active .page-link:hover {
+    background-color: #0056b3; /* Un poco más oscuro al pasar el mouse sobre el activo */
+    border-color: #004085;
+    transform: translateY(0); /* Quitar elevación en hover para el activo */
+  }
+  
+  
+  /* Ítem deshabilitado */
+  .pageItem.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #f8f9fa; /* Fondo ligeramente diferente para deshabilitado */
+    border-color: #dee2e6;
+    box-shadow: none; /* Sin sombra para deshabilitado */
+  }
+  
+  /* Estilo específico para los botones de control (Prev, Next, First, Last) */
+  .pageItem.controlButton .page-link {
+    font-weight: 500; /* Hacerlos un poco más prominentes */
+  }
+  
+  /* Estilo para los puntos suspensivos (Ellipsis) */
+  .pageItem.ellipsis .page-link {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    color: #6c757d;
+    padding-top: 0.55rem; /* Alinear verticalmente mejor */
+  }
+  .pageItem.ellipsis .page-link:hover {
+    background-color: transparent;
+    transform: none;
+  }
+  
+  

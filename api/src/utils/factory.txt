@@ -1,0 +1,73 @@
+import { HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
+import { BaseEntity, FindManyOptions, FindOptionsOrder } from "typeorm";
+import { AuthenticatedController } from "./auth.handler";
+import { LogService } from "../utils/log.service";
+import { createSuccessResponse, createErrorResponse, createInternalServerErrorResponse } from "./response.handler";
+import { parsePagination, parseSort, buildSearchWhere } from "./query.parser";
+
+interface MyJwtPayload { data: number }
+
+// --- Interfaz de Configuración (sin cambios) ---
+interface ListLogicConfig<T extends BaseEntity> {
+    entity: typeof BaseEntity & { new(): T };
+    operation: string;
+    allowedSortFields: (keyof T)[];
+    searchFields: { [key: string]: 'text' | 'date' };
+    relations?: FindManyOptions<T>['relations'];
+    fetchAdditionalData?: () => Promise<Record<string, any>>;
+    defaultSort: FindOptionsOrder<T>;
+}
+
+// --- Fábrica de Controladores (con la corrección) ---
+export function createListLogicHandler<T extends BaseEntity>(config: ListLogicConfig<T>): AuthenticatedController<MyJwtPayload> {
+
+    return async (req: HttpRequest, context: InvocationContext, jwtPayload: MyJwtPayload): Promise<HttpResponseInit> => {
+        const { entity, operation, allowedSortFields, searchFields, relations, fetchAdditionalData, defaultSort } = config;
+        const userId = jwtPayload.data;
+
+        try {
+            // --- PARSEO DE PARÁMETROS ---
+            const { pageNum, pageSize, fetchAll } = parsePagination(req, operation, userId);
+
+            // CORRECCIÓN: Se extrae el string 'sort' de la petición antes de pasarlo a la función.
+            const sortQuery = req.query.get('sort');
+            const order = parseSort<T>(sortQuery, allowedSortFields, defaultSort);
+
+            const where = buildSearchWhere<T>(req, searchFields);
+
+            // El resto del código no necesita cambios
+            const findOptions: FindManyOptions<T> = { where, order, relations };
+            if (!fetchAll) {
+                findOptions.take = pageSize;
+                findOptions.skip = pageNum * pageSize;
+            }
+
+            const [[list, count], additionalData] = await Promise.all([
+                entity.findAndCount(findOptions),
+                fetchAdditionalData ? fetchAdditionalData() : Promise.resolve({})
+            ]);
+
+            await LogService.logSuccess(operation, `${operation} listados exitosamente.`, { requestParams: Object.fromEntries(req.query) }, userId);
+
+            const responsePayload = {
+                content: list,
+                totalElements: count,
+                totalPages: fetchAll ? 1 : Math.ceil(count / pageSize),
+                number: fetchAll ? 0 : pageNum,
+                size: fetchAll ? count : pageSize,
+                ...additionalData
+            };
+            return createSuccessResponse(responsePayload);
+
+        } catch (error) {
+            if (error.message.includes("paginación inválidos")) {
+                await LogService.logWarning(operation, "Parámetros de paginación inválidos.", { error: error.message }, userId);
+                return createErrorResponse(error.message, 400);
+            }
+
+            context.error(`Error inesperado en ${operation}:`, error);
+            await LogService.logError(operation, "Ocurrió un error en el servidor.", error, userId);
+            return createInternalServerErrorResponse(`Error al listar los registros.`, error);
+        }
+    };
+}

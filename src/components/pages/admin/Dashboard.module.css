@@ -1,0 +1,124 @@
+.kpiCard {
+  border: none;
+  border-radius: 12px;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.kpiCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.bg_primary {
+  background: linear-gradient(45deg, #0d6efd, #3c8cff);
+}
+.bg_warning {
+  background: linear-gradient(45deg, #ffc107, #ffd043);
+}
+.bg_success {
+  background: linear-gradient(45deg, #198754, #22b573);
+}
+.bg_danger {
+  background: linear-gradient(45deg, #dc3545, #ea5a68);
+}
+
+
+.kpiIcon {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kpiValue {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.kpiTitle {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+
+.kpiTrend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.trendUp {
+  color: #c8e6c9;
+}
+
+.trendDown {
+  color: #ffcdd2;
+}
+.contentCard {
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.contentCard:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+}
+
+.cardHeader {
+  background-color: transparent;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #343a40;
+  padding: 1rem 1.25rem;
+}
+.headerTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 0.25rem;
+}
+
+.headerSubtitle {
+  font-size: 1.1rem;
+  color: #6c757d; 
+  font-weight: 300;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.headerGreeting {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+}
+
+.headerSubtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  font-weight: 300;
+  margin-top: 0.25rem;
+}
+
+.dateDisplay {
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  align-self: center;
+}

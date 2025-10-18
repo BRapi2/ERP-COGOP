@@ -1,0 +1,14 @@
+.card-header.form-section-header {
+    background-color: #1e293b !important;
+    color: white !important;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.form-section-title {
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}

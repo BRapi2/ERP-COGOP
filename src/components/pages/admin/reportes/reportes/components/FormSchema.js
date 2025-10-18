@@ -1,0 +1,65 @@
+export const getFormSchema = (tipoReporteOptions = [], tipoPeriodoOptions = [], periodoOptions = []) => [
+  {
+    name: 'tipoReporteId',
+    label: 'Tipo de Reporte',
+    type: 'select',
+    options: tipoReporteOptions,
+    optionValueKey: 'id',
+    optionLabelKey: 'name',
+    required: true,
+  },
+  {
+    name: 'tipoPeriodoId',
+    label: 'Tipo de Periodo',
+    type: 'select',
+    options: tipoPeriodoOptions,
+    optionValueKey: 'id',
+    optionLabelKey: 'name',
+    required: true,
+  },
+  {
+    name: 'periodoId',
+    label: 'Periodo',
+    type: 'select',
+    options: periodoOptions,
+    optionValueKey: 'id',
+    optionLabelKey: 'name',
+    required: true,
+  },
+  {
+    name: 'year',
+    label: 'Año',
+    type: 'number',
+    required: true,
+  },
+  {
+    name: 'nombres',
+    label: 'Nombres',
+    type: 'text',
+    required: true,
+  },
+  {
+    name: 'apellidos',
+    label: 'Apellidos',
+    type: 'text',
+    required: true,
+  },
+  {
+    name: 'email',
+    label: 'Email',
+    type: 'text',
+    required: true,
+  },
+  {
+    name: 'telefono',
+    label: 'Teléfono',
+    type: 'text',
+    required: true,
+  },
+  {
+    name: 'direccion',
+    label: 'Dirección',
+    type: 'text',
+    required: true,
+  }
+];

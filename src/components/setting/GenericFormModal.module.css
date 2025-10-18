@@ -1,0 +1,177 @@
+.modalDialog {
+    /* max-width: 600px; */
+  }
+  
+  .modalContent {
+    border-radius: 0.6rem;
+    border: none;
+    box-shadow: 0 0.75rem 1.75rem rgba(0, 0, 0, 0.12) !important;
+    font-family: inherit;
+  }
+  
+  .modalHeader {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 1.25rem 2rem !important;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modalHeaderSuccess {
+    background-color: var(--bs-success);
+  }
+  
+  .modalHeaderSuccess .modal-title {
+    color: #ffffff !important;
+  }
+  
+  .modalHeaderSuccess .btn-close {
+    filter: brightness(0) invert(1);
+  }
+  
+  
+  .modalHeaderPrimary {
+    background-color: var(--bs-primary);
+  }
+  
+  .modalHeaderPrimary .modal-title {
+    color: #ffffff !important;
+  }
+  
+  .modalHeaderPrimary .btn-close {
+    filter: brightness(0) invert(1);
+  }
+  
+  
+  .modalTitle {
+    font-weight: 500 !important;
+    font-size: 1.15rem !important;
+    letter-spacing: -0.01em;
+    color: white;
+  }
+  
+  .modalBody {
+    padding: 2rem 2.5rem !important;
+    background-color: #fff;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .formLabel {
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 0.4rem !important;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+  }
+  
+  .formControl,
+  .formSelect {
+    border-radius: 0.25rem !important;
+    border: 1px solid #d1d5db !important;
+    padding: 0.6rem 0.9rem !important;
+    font-size: 0.9rem !important;
+    color: #333 !important;
+    background-color: #fff !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+  }
+  
+  .formControl::placeholder {
+    color: #9ca3af !important;
+    font-style: italic !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .formControl:focus,
+  .formSelect:focus {
+    border-color: #a0cfff !important;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15) !important;
+  }
+  
+  .checkboxGroup {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .checkboxGroup .form-check-input {
+    border-color: #d1d5db !important;
+  }
+  
+  .checkboxGroup .form-check-input:checked {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+  }
+  
+  .checkboxGroup .form-check-label {
+    font-weight: 400 !important;
+    color: #454545 !important;
+    padding-left: 0.35rem !important;
+    font-size: 0.9rem !important;
+    cursor: pointer !important;
+  }
+  
+  .loadingState {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 250px !important;
+    padding: 2rem !important;
+  }
+  
+  .loadingState .spinner-border {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--bs-primary);
+  }
+  
+  .loadingState p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .alertError {
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    color: #842029;
+  }
+  
+  .modalFooter {
+    background-color: #f8f9fa !important;
+    border-top: 1px solid #e9ecef !important;
+    padding: 1rem 1.5rem !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+  }
+  
+  .modalFooter button {
+    min-width: 90px !important;
+    padding: 0.45rem 0.9rem !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    border-radius: 0.25rem !important;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out !important;
+  }
+  
+  .modalFooter button+button {
+    margin-left: 0.6rem !important;
+  }
+  
+  .modalFooter .btn-primary {}
+  
+  .modalFooter .btn-primary:hover {}
+  
+  .modalFooter .btn-outline-secondary {
+    color: #555 !important;
+    border-color: #ccc !important;
+  }
+  
+  .modalFooter .btn-outline-secondary:hover {
+    color: #333 !important;
+    background-color: #e9ecef !important;
+    border-color: #bbb !important;
+  }

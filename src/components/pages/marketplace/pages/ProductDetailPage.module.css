@@ -1,0 +1,180 @@
+/* src/pages/ProductDetailPage.v2.module.css */
+
+/* --- Paleta de Colores y Variables --- */
+:root {
+  --primary-gradient: linear-gradient(45deg, #007bff, #0056b3);
+  --accent-color: #f39c12; /* Un dorado/naranja elegante */
+  --page-bg-gradient: linear-gradient(180deg, #f8f9fa 0%, #ffffff 20%);
+  --related-bg-gradient: linear-gradient(45deg, #2c3e50, #4c4177);
+  --glow-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+}
+
+/* --- Estilo Base de la Página --- */
+.pageBackground {
+  /* Fondo con gradiente sutil en lugar de color plano */
+  background-image: var(--page-bg-gradient);
+}
+
+/* --- Tarjetas Principales --- */
+.mainCard, .detailsCard {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+  overflow: hidden; /* Importante para los bordes redondeados */
+  margin-bottom: 2.5rem;
+}
+
+/* --- Galería de Imágenes --- */
+.mainImage {
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.4s ease-out;
+}
+
+.mainImage:hover {
+  transform: scale(1.05);
+}
+
+.thumbnailContainer {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.thumbnail {
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  transition: all 0.2s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+  border-color: #adb5bd;
+}
+
+.activeThumbnail {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 10px rgba(var(--bs-primary-rgb), 0.5);
+}
+
+/* --- Detalles del Producto --- */
+.productTitle {
+  font-family: 'Georgia', 'serif';
+  font-weight: 700;
+  font-size: 2.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #343a40;
+  margin-bottom: 1.5rem;
+}
+
+.keyFeaturesSection {
+  margin-bottom: 2rem;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+  padding: 1.5rem 0;
+}
+
+.keyFeature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: #495057;
+}
+
+.featureIcon {
+  color: var(--accent-color);
+}
+
+/* --- Área de Compra --- */
+.purchaseSection {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.quantitySelector {
+  display: flex;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+
+.quantitySelector .btn {
+  border: none;
+}
+
+.quantityValue {
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+}
+
+.ctaButton {
+  flex-grow: 1;
+  padding: 0.85rem;
+  border: none;
+  background-image: var(--primary-gradient);
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-shadow);
+}
+
+/* --- Secciones de Información Adicional --- */
+.sectionTitle {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.descriptionText {
+  color: #495057;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.detailsTable {
+  font-size: 0.95rem;
+}
+
+.detailLabel {
+  color: #212529;
+  width: 30%;
+}
+
+/* --- Sección de Productos Relacionados --- */
+.relatedSectionBackground {
+  background-image: var(--related-bg-gradient);
+  padding: 3rem 0;
+  margin-top: 2rem;
+}
+
+.relatedSectionBackground h2 {
+  color: white;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  padding-bottom: 1rem;
+  margin-bottom: 3rem !important;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.relatedSectionBackground :global(.card) {
+   background-color: white !important;
+}

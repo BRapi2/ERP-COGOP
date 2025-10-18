@@ -1,0 +1,85 @@
+.marketplaceContainer {
+  background-color: #f8f9fa; /* Un fondo muy claro para la página */
+}
+
+/* --- Hero Section Styles --- */
+.heroSection {
+  position: relative;
+  height: 40vh;
+  background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1600') center center/cover no-repeat;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 48, 135, 0.6); /* Un azul oscuro semitransparente */
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- General Styles --- */
+.sectionTitle {
+  font-weight: 700;
+  margin-bottom: 2rem !important;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #dee2e6;
+  display: inline-block;
+}
+
+/* --- Card Styles --- */
+.itemCard {
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  background-color: #fff;
+}
+
+.itemCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.itemCard img {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  height: 220px;
+  object-fit: cover;
+}
+
+.priceText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--bs-primary);
+}
+
+.productBadge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 0.75rem;
+  z-index: 2;
+}
+
+.trainingCard {
+  background-color: #fff;
+  border: 1px solid #e9ecef;
+  box-shadow: none;
+}
+
+.trainingCard:hover {
+  border-color: var(--bs-success);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transform: translateY(-5px);
+}

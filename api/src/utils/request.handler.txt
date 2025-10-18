@@ -1,0 +1,40 @@
+import { HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
+import { createErrorResponse } from './response.handler';
+
+export type ControllerLogicWithBody<TBody = any> = (req: HttpRequest, context: InvocationContext, body: TBody | undefined) => Promise<HttpResponseInit>;
+export function withParsedBody<TBody = any>(handler: ControllerLogicWithBody<TBody>): (req: HttpRequest, context: InvocationContext) => Promise<HttpResponseInit> {
+    return async (req: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> => {
+        let parsedBody: TBody | undefined = undefined;
+
+        if (req.method === "POST" || req.method === "PUT" || req.method === "PATCH") {
+            if (!req.body) {
+                context.warn(`Request with method ${req.method} received without a body.`);
+                return createErrorResponse(
+                    "El cuerpo de la solicitud es requerido para esta operación y no fue proporcionado.",
+                    400
+                );
+            }
+            try {
+                const jsonData = await req.json();
+                if (jsonData === null && typeof parsedBody === 'object') {
+                    context.error("Error parsing JSON body: parsed body is null when an object was expected.");
+                    return createErrorResponse("El cuerpo de la solicitud es nulo, pero se esperaba un objeto JSON.",400);
+                }
+                parsedBody = jsonData as TBody;
+
+            } catch (parseError) {
+                context.error("Error parsing JSON body:", parseError);
+                const errorDetails = parseError instanceof Error ? parseError.message : String(parseError);
+                return createErrorResponse("Cuerpo de la solicitud inválido. Se esperaba JSON.",400,errorDetails);
+            }
+        }
+        try {
+            return await handler(req, context, parsedBody);
+        } catch (error) {
+            context.error(`Error in controller logic for ${req.url}:`, error);
+            const clientErrorMessage = error instanceof Error ? error.message : "Ocurrió un error inesperado.";
+            const errorDetails = error instanceof Error ? error.stack : String(error);
+            return createErrorResponse(clientErrorMessage, 500, errorDetails);
+        }
+    };
+}

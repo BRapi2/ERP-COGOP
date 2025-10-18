@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --login-bg-color: #ffffff;
+  --login-form-bg-color: #ffffff;
+  --login-primary-accent: #6a5af9; /* Morado/azul vibrante (como en el botón de referencia) */
+  --login-primary-accent-hover: #5847d8;
+  --login-text-dark: #1e293b;  /* Un gris muy oscuro, casi negro (ej. Tailwind slate-800) */
+  --login-text-medium: #475569; /* Gris oscuro (ej. Tailwind slate-600) */
+  --login-text-light: #94a3b8;  /* Gris más claro para placeholders y texto secundario (ej. Tailwind slate-400) */
+  --login-border-color: #cbd5e1; /* Borde sutil (ej. Tailwind slate-300) */
+  --login-input-bg: #f8fafc; /* Fondo muy claro para inputs (ej. Tailwind slate-50) */
+  
+  --login-google-btn-bg: #ffffff;
+  --login-google-btn-border: var(--login-border-color);
+  --login-google-btn-text: #374151;
+  --login-google-btn-hover-bg: #f9fafb;
+
+
+  --login-box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 5px 10px -5px rgba(0, 0, 0, 0.04); /* Sombra más suave y extendida */
+  --login-border-radius: 0.75rem; /* 12px, bordes más redondeados */
+  --login-border-radius-sm: 0.375rem; /* 6px */
+  --margin-bottom-sm: 0.75rem;
+
+  --primary-color: #DC143C; /* Rojo Carmesí */
+  --primary-dark-color: #B21030; /* Carmesí un poco más oscuro para hover */
+  --white-color: #FFFFFF;
+  --text-dark-color: #212529;  /* Negro suave para texto principal */
+  --text-medium-color: #495057; /* Gris oscuro para labels y texto secundario */
+  --text-light-color: #6c757d;  /* Gris más claro para placeholders */
+  --border-color: #ced4da;     /* Borde estándar de Bootstrap */
+  --focus-border-color: #86b7fe; /* Azul de foco de Bootstrap */
+  --focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+
+  /* Fondo de página profesional y neutro */
+  --page-background-color: #f4f7f9; /* Gris muy claro y limpio */
+
+  /* Sombra más suave y profesional para la caja de login */
+  --login-box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+
+  --border-radius-md: 0.375rem; /* Equivalente a Bootstrap 'rounded' */
+  --border-radius-lg: 0.5rem;  /* Un poco más redondeado */
+  
+  --padding-base: 1rem;
+  --padding-md: 1.5rem;
+  --padding-lg: 2.5rem;
+  --margin-bottom-md: 1.5rem;
+  --margin-bottom-lg: 2rem;
+
+  /* --- Paleta de Colores Principal --- */
+  --custom-primary-color: #0056b3; /* Azul oscuro elegante (ej. COGOP actual) */
+  --custom-accent-color: #0d6efd;  /* Azul primario de Bootstrap, más vibrante para acentos */
+  
+  /* --- Colores de Texto --- */
+  --custom-text-light: #ffffff;    /* Blanco puro para texto sobre fondos oscuros */
+  --custom-text-dark: #212529;     /* Negro suave para texto principal */
+  --custom-text-medium: #495057;   /* Gris oscuro para labels y texto secundario */
+  --custom-text-muted: #6c757d;   /* Gris para texto secundario/muted */
+
+  /* --- Colores de Navbar --- */
+  --custom-navbar-bg: var(--custom-primary-color);
+  --custom-navbar-link-color: rgba(255, 255, 255, 0.85);
+  --custom-navbar-link-hover-color: #ffffff;
+  --custom-navbar-link-active-color: #ffffff;
+  --custom-navbar-link-active-bg: rgba(255, 255, 255, 0.15);
+  --custom-navbar-brand-color: #ffffff; 
+  --custom-navbar-toggler-icon-color: rgba(255, 255, 255, 0.8);
+
+  /* --- Colores de Sidebar --- */
+  /* (Estas variables también podrían estar aquí si son consistentes con el tema global,
+     o podrías tener un conjunto separado para el sidebar si su tema es muy distinto
+     y no quieres que estas variables específicas del sidebar sean globales) */
+  --sidebar-bg-color: #111827; 
+  --sidebar-link-color: #9ca3af;
+  --sidebar-link-hover-color: #ffffff;
+  --sidebar-link-active-color: var(--custom-accent-color); /* Usa el acento global */
+  --sidebar-link-hover-bg: rgba(59, 130, 246, 0.08);
+  --sidebar-link-active-bg: rgba(59, 130, 246, 0.15);
+  --sidebar-icon-color: #9ca3af;
+  --sidebar-icon-active-color: var(--sidebar-link-active-color);
+  --sidebar-submenu-bg-color: rgba(0, 0, 0, 0.2);
+  --sidebar-submenu-link-color: #d1d5db;
+  --sidebar-submenu-link-hover-color: #ffffff;
+  --sidebar-border-color: rgba(255, 255, 255, 0.07);
+  --sidebar-indicator-width: 3px;
+
+
+  /* --- Layout General y Componentes --- */
+  --custom-body-bg: #eef2f5; /* Un gris azulado muy claro y suave para el fondo de la página */
+  --custom-content-bg: #ffffff; 
+  --custom-border-color: #dee2e6; 
+  --custom-border-radius-sm: 0.25rem;
+  --custom-border-radius-md: 0.375rem; 
+  --custom-border-radius-lg: 0.5rem;  
+  --custom-box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.07); /* Sombra más suave y moderna */
+
+  /* --- Dimensiones --- */
+  --navbar-height: 60px; /* Altura consistente de la Navbar */
+  --sidebar-width-expanded: 260px; 
+
+  /* --- Tipografía --- */
+  --font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --danger-bg-subtle: #f8d7da;
+  --danger-border-subtle: #f5c2c7;
+  --danger-text-emphasis: #721c24; /* Un rojo oscuro para el texto del error */
+  --danger-icon-color: var(--danger-text-emphasis);
+}
+
+/* Aplicar la fuente base al body */
+body {
+  font-family: var(--font-family-sans-serif);
+  background-color: var(--custom-body-bg); /* Establecer el fondo del body globalmente */
+  margin: 0; /* Reseteo básico */
+  color: var(--custom-text-dark); /* Color de texto por defecto */
+  line-height: 1.6; /* Mejorar legibilidad */
+  -webkit-font-smoothing: antialiased; /* Mejor renderizado de fuentes en Webkit */
+  -moz-osx-font-smoothing: grayscale; /* Mejor renderizado de fuentes en Firefox */
+}
+.pagination .page-item .page-link {
+  color:--white-color;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; /* Transiciones para paginación */
+  border-radius: 0.25rem; /* Bordes redondeados para los ítems */
+  margin: 0 2px; /* Pequeño espacio entre botones de página */
+}
+.pagination .page-item .page-link:hover {
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+.pagination .page-item.active .page-link {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(13,110,253,0.2); /* Sombra sutil para el ítem activo */
+}
+.pagination .page-item.disabled .page-link {
+  color: #6c757d;
+  background-color: transparent;
+}
+.navbar {
+  height: var(--navbar-height);
+  min-height: var(--navbar-height);
+  background-color: var(--sidebar-bg-color) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Sombra más definida para la navbar */
+  padding: 0 1rem; /* Padding horizontal general para la navbar */
+  z-index: 1030; 
+  flex-shrink: 0; 
+}
+
+
+
+/* --- Estilos Globales para Tablas Profesionales --- */
+/* Añade esto a tu index.css o un archivo CSS global importado */
+
+/* Contenedor de la tarjeta que envuelve la tabla (opcional, si quieres este estilo de tarjeta globalmente para tablas) */
+.table-card-wrapper {
+  border: 1px solid #e5e7eb; /* Borde muy sutil */
+  border-radius: 0.5rem;    /* Bordes redondeados consistentes */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+  overflow: hidden;         /* Para que los bordes redondeados afecten a la tabla interna */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.table-card-wrapper:hover {
+   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.table-card-wrapper .card-body { /* Si usas Card de Bootstrap dentro del wrapper */
+  padding: 0; /* La tabla ocupará todo el espacio, o ajusta si quieres padding */
+}
+
+/* Estilos para la tabla con la clase .professional-table */
+.professional-table {
+  margin-bottom: 0; /* Quitar margen inferior si está dentro de una card */
+}
+
+.professional-table thead th {
+  background-color: #f9fafb; /* Fondo muy claro para cabeceras */
+  color: #374151;            /* Color de texto oscuro pero no negro puro */
+  font-weight: 500;           /* Peso medio para cabeceras */
+  font-size: 0.875rem;        /* Tamaño de fuente estándar para cabeceras */
+  padding: 0.9rem 1rem;       /* Buen padding para cabeceras */
+  border-bottom: 2px solid #e5e7eb !important; /* Borde inferior más pronunciado, !important para asegurar sobre Bootstrap */
+  border-top: none !important; /* Quitar borde superior si la card ya tiene uno */
+  white-space: nowrap;
+  letter-spacing: 0.025em;   /* Ligero espaciado para claridad */
+  transition: background-color 0.2s ease;
+}
+
+.professional-table thead th.sortable-header { /* Clase adicional para cabeceras ordenables */
+  cursor: pointer;
+}
+
+.professional-table thead th.sortable-header:hover {
+  background-color: #f0f2f5; /* Color de fondo sutil al pasar el mouse */
+}
+
+.professional-table thead th span.sort-icon svg { /* Iconos de ordenamiento */
+  vertical-align: text-bottom;
+  margin-bottom: -0.1em;
+  margin-left: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+.professional-table thead th.sortable-header:hover span.sort-icon svg {
+  transform: scale(1.1);
+}
+
+.professional-table tbody tr {
+  animation: fadeInRowTable 0.4s ease-out forwards; /* Animación de entrada para cada fila */
+  opacity: 0; /* Inicia invisible para la animación */
+  transition: background-color 0.25s ease-in-out, transform 0.2s ease-out; /* Transiciones suaves */
+}
+
+/* Opcional: Delay escalonado para la animación de entrada de filas */
+/* .professional-table tbody tr:nth-child(1) { animation-delay: 0.05s; }
+.professional-table tbody tr:nth-child(2) { animation-delay: 0.1s; }
+.professional-table tbody tr:nth-child(3) { animation-delay: 0.15s; } */
+
+@keyframes fadeInRowTable { /* Renombrado para evitar colisión si ya tienes fadeInRow */
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.professional-table tbody tr:hover {
+  background-color: #eef2f9 !important; /* Un hover azulado muy sutil y elegante */
+  /* transform: scale(1.005); */ /* El scale en TR puede ser problemático con bordes/sombras */
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.08); */ /* Sombra en TR puede ser compleja de alinear bien */
+  /* z-index: 1; */
+  /* position: relative; */
+}
+
+.professional-table td {
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+  font-size: 0.9rem;
+  color: #4b5563;
+  border-top: 1px solid #f3f4f6 !important; /* Líneas de fila muy sutiles */
+}
+
+/* Estilos para los botones de acción dentro de la tabla */
+.professional-table .table-action-button {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  margin-right: 0.35rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease-in-out;
+  border-width: 1px; /* Asegurar que el borde outline tenga el mismo espacio */
+}
+.professional-table .table-action-button:last-child {
+  margin-right: 0;
+}
+.professional-table .table-action-button svg {
+  vertical-align: text-bottom;
+  transition: transform 0.2s ease;
+}
+
+.professional-table .table-action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.professional-table .table-action-button:hover svg {
+  transform: scale(1.1);
+}
+
+.professional-table .table-action-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+/* Badges dentro de la tabla */
+.professional-table .badge {
+  font-size: 0.78rem; /* Tamaño de fuente para badges */
+  padding: 0.3em 0.55em; /* Padding para badges */
+  font-weight: 500;
+}
+
+.pageContainer {
+  padding: 2rem;
+  background-color: #f9fafb;
+  font-family: inherit;
+  min-height: calc(100vh - 56px);
+  animation: fadeInPage 0.5s ease-out; /* Animación de entrada para la página */
+}
+
+.headerRow {
+  margin-bottom: 2rem;
+  align-items: center;
+}
+.headerRow .btn-primary,
+.controlsRow .btn-outline-secondary {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 0.3rem;
+  transition: all 0.2s ease-in-out;
+}
+.headerRow .btn-primary:hover,
+.controlsRow .btn-outline-secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.headerTitle {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 1.75rem;
+  letter-spacing: -0.025em;
+}
+
+/* --- Fila de Controles (Filtros, PageSize, Botón Buscar) --- */
+.controlsRow {
+  padding: 1.25rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  transition: box-shadow 0.3s ease-in-out; /* Transición para la sombra */
+}
+.controlsRow:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07); /* Sombra más pronunciada al pasar el mouse */
+}
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  border-radius: 0.5rem;
+  transition: opacity 0.3s ease-in-out; 
+}
+.loadingOverlay .spinner-border {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.loadingOverlay span {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--bs-primary);
+}
+
+.paginationRow {
+  /*margin-top: 2rem;*/
+}
+
+.paginationInfo {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.noDataMessage,
+.errorMessageContainer {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #6b7280;
+  opacity: 0; /* Para animación de entrada */
+  animation: fadeInContent 0.5s ease-out forwards;
+  animation-delay: 0.2s; /* Pequeño delay */
+}
+
+@keyframes fadeInContent {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.noDataMessage h4,
+.errorMessageContainer h4 {
+  color: #374151;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.errorMessageContainer p {
+  color: var(--bs-danger);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}

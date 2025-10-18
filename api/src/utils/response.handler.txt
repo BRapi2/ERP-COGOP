@@ -1,0 +1,56 @@
+import { HttpResponseInit } from "@azure/functions";
+
+interface SuccessResponseData {
+    status: "success";
+    message?: string;
+    codigo: number;
+    data: any;
+}
+
+interface ErrorResponseData {
+    status: "error";
+    message: string;
+    codigo: number;
+    data?: any;
+}
+
+export function createSuccessResponse(payload: any, message: string = "Operación exitosa", httpStatusCode: number = 200): HttpResponseInit {
+    const body: SuccessResponseData = {
+        status: "success",
+        message: message,
+        data: payload,
+        codigo: httpStatusCode
+    };
+    return {
+        status: httpStatusCode,
+        jsonBody: body
+    };
+}
+
+export function createErrorResponse(errorMessage: string, httpStatusCode: number = 400, errorDetails?: any): HttpResponseInit {
+    const body: ErrorResponseData = {
+        status: "error",
+        message: errorMessage,
+        codigo: httpStatusCode
+    };
+    if (errorDetails) {
+        body.message = errorDetails;
+    }
+    return {
+        status: httpStatusCode,
+        jsonBody: body
+    };
+}
+
+export function createUnauthorizedResponse(errorMessage: string = "No autorizado"): HttpResponseInit {
+    return createErrorResponse(errorMessage, 401);
+}
+
+export function createNotFoundResponse(errorMessage: string = "Recurso no encontrado"): HttpResponseInit {
+    return createErrorResponse(errorMessage, 404);
+}
+
+export function createInternalServerErrorResponse(errorMessage: string = "Ocurrió un error interno en el servidor.", errorDetails?: any): HttpResponseInit {
+    console.error("Internal Server Error:", errorDetails || errorMessage);
+    return createErrorResponse(errorMessage, 500);
+}
