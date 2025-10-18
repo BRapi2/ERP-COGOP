@@ -44,3 +44,9 @@ app.http('reportes_tipo_encargado_guardar', {
     authLevel: 'anonymous',
     handler: saveReportesTipoEncargado
 });
+
+/// REPORTES FINANZAS MENSUALES
+import { getListarReportesFinanzasMensuales, saveReporteFinanzasMensuales, getReporteFinanzasMensualesById } from "../modules/reportes/reportes-finanzas-mensuales/presentation/routes/ReportesFinanzasMensuales.route";
+app.http('reportes_finanzas_mensuales_listar', { route: "v1/reportes-finanzas-mensuales/lista", methods: ['GET'], authLevel: 'anonymous', handler: getListarReportesFinanzasMensuales });
+app.http('reportes_finanzas_mensuales_guardar', { route: "v1/reportes-finanzas-mensuales/guardar", methods: ['POST'], authLevel: 'anonymous', handler: saveReporteFinanzasMensuales });
+app.http('reportes_finanzas_mensuales_obtener_por_id', { route: "v1/reportes-finanzas-mensuales/{id}", methods: ['GET'], authLevel: 'anonymous', handler: getReporteFinanzasMensualesById });
